@@ -1,3 +1,4 @@
+from matplotlib.image import AxesImage
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, cohen_kappa_score, roc_curve, auc
@@ -27,10 +28,10 @@ def crossval_summary(model, X_train, y_train):
     print(f"Average Precision Score: {np.mean(results['test_precision'])}")
     print(f"Average Recall Score: {np.mean(results['test_recall'])}")
     print(f"Average F1 Score: {np.mean(results['test_f1_micro'])}")
+    print(results['test_f1_micro'])
     print(f"Average AUC Score: {np.mean(results['test_roc_auc'])}")
+    print(results['test_roc_auc'])
     print('=================================================')
-
-    return np.mean(results['test_roc_auc'])
 
 
 def plot_roc(model, name, X_test, y_test):
@@ -41,12 +42,14 @@ def plot_roc(model, name, X_test, y_test):
     roc_auc = auc(fpr, tpr)
 
     # method I: plt
-    plt.title('Receiver Operating Characteristic')
-    plt.plot(fpr, tpr, 'b', label=f'{name} = {roc_auc:0.4f}')
-    plt.legend(loc='lower right')
-    plt.plot([0, 1], [0, 1], 'r--')
-    plt.xlim([0, 1])
-    plt.ylim([0, 1])
-    plt.ylabel('True Positive Rate')
-    plt.xlabel('False Positive Rate')
+    fig, ax = plt.subplots(figsize=(15, 9))
+    ax.plot(fpr, tpr, 'b', label=f'{name} = {roc_auc:0.4f}', linewidth=2)
+    ax.legend(loc='lower right')
+    ax.plot([0, 1], [0, 1], 'r--')
+    ax.set_xlim([0, 1])
+    ax.set_ylim([0, 1.01])
+    ax.set_xlabel('False Positive Rate', fontsize=14)
+    ax.set_ylabel('True Positive Rate', fontsize=14)
+    ax.set_title('Receiver Operating Characteristic Curve', fontsize=20)
+    ax.legend(loc="lower right", title="AUC", fontsize=12)
     plt.show()
