@@ -1,8 +1,7 @@
-from matplotlib.image import AxesImage
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, cohen_kappa_score, roc_curve, auc
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, RepeatedStratifiedKFold
 
 # Custom function to print the metrics of the model
 
@@ -21,8 +20,9 @@ def metrics_summary(y_test, y_pred):
 
 def crossval_summary(model, X_train, y_train):
     scoring = ['accuracy', 'precision', 'recall', 'f1_micro', 'roc_auc']
+    cv = RepeatedStratifiedKFold(n_splits=3, n_repeats=1)
 
-    results = cross_validate(model, X_train, y_train, scoring=scoring, cv=5)
+    results = cross_validate(model, X_train, y_train, scoring=scoring, cv=cv)
     print('=================================================')
     print(f"Average Accuracy Score: {np.mean(results['test_accuracy'])}")
     print(f"Average Precision Score: {np.mean(results['test_precision'])}")
