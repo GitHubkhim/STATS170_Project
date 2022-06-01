@@ -6,7 +6,7 @@ from sklearn.model_selection import cross_validate, RepeatedStratifiedKFold
 # Custom function to print the metrics of the model
 
 
-def metrics_summary(y_test, y_pred):
+def metrics_summary(y_test, y_pred, y_prob):
     print(confusion_matrix(y_test, y_pred))
     print('=================================================')
     print(f'Kappa Score: {cohen_kappa_score(y_test, y_pred)}')
@@ -14,13 +14,13 @@ def metrics_summary(y_test, y_pred):
     print(f'Precision: {precision_score(y_test, y_pred)}')
     print(f'Recall: {recall_score(y_test, y_pred)}')
     print(f'F1 Score: {f1_score(y_test, y_pred)}')
-    print(f'AUC Score: {roc_auc_score(y_test, y_pred)}')
+    print(f'AUC Score: {roc_auc_score(y_test, y_prob)}')
     print('=================================================')
 
 
 def crossval_summary(model, X_train, y_train):
     scoring = ['accuracy', 'precision', 'recall', 'f1_micro', 'roc_auc']
-    cv = RepeatedStratifiedKFold(n_splits=3, n_repeats=1)
+    cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=1)
 
     results = cross_validate(model, X_train, y_train, scoring=scoring, cv=cv)
     print('=================================================')
@@ -42,7 +42,7 @@ def plot_roc(model, name, X_test, y_test):
     roc_auc = auc(fpr, tpr)
 
     # method I: plt
-    fig, ax = plt.subplots(figsize=(15, 9))
+    fig, ax = plt.subplots(figsize=(16, 9))
     ax.plot(fpr, tpr, 'b', label=f'{name} = {roc_auc:0.4f}', linewidth=2)
     ax.legend(loc='lower right')
     ax.plot([0, 1], [0, 1], 'r--')
@@ -50,6 +50,6 @@ def plot_roc(model, name, X_test, y_test):
     ax.set_ylim([0, 1.01])
     ax.set_xlabel('False Positive Rate', fontsize=14)
     ax.set_ylabel('True Positive Rate', fontsize=14)
-    ax.set_title('Receiver Operating Characteristic Curve', fontsize=20)
+    ax.set_title(f'ROC Curve for {name}', fontsize=20)
     ax.legend(loc="lower right", title="AUC", fontsize=12)
     plt.show()
