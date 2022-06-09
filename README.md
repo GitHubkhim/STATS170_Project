@@ -18,7 +18,7 @@ Capstone Project in conjuction with Accenture
 - model.ipynb - Notebook for showcasing on a small sample of the data
 - sample_data.csv - CSV file of a small sample of the entire data
 
-## How To Run
+## How To Run (with complete data - not provided due to restricted access)
 1. Run Data Wrangling & Management.ipynb
 2. Run data_preprocessing.ipynb
 3. Run the model you would like to run
@@ -28,3 +28,6 @@ Capstone Project in conjuction with Accenture
     - sgd.ipynb for Stochastic Gradient Descent
     - xgboost.ipynb for XGBoost
 4. Run all models to run all_models.ipynb
+
+## How To Run (with sample_data.csv - GitHub Repository for the purpose of our final report)
+1. Run project.ipynb
