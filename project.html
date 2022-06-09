@@ -14922,6 +14922,49 @@ jp-needs-light-background
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(6221, 257)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14968,12 +15011,12 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Index([&#39;AA5C&#39;, &#39;AB1&#39;, &#39;AB115&#39;, &#39;AB119&#39;, &#39;AB16&#39;, &#39;AB17&#39;, &#39;AB18&#39;, &#39;AB19&#39;,
-       &#39;AB29V2&#39;, &#39;AB30&#39;,
+<pre>Index([&#39;AA5C&#39;, &#39;AB1&#39;, &#39;AB16&#39;, &#39;AB29V2&#39;, &#39;AB30&#39;, &#39;AB34&#39;, &#39;AB99&#39;, &#39;AC11&#39;, &#39;AC32&#39;,
+       &#39;AD37W&#39;,
        ...
-       &#39;VOTE_RSNNO&#39;, &#39;AJ115_P1&#39;, &#39;INTV_MODE2&#39;, &#39;AJ153V2_12&#39;, &#39;AJ194_6&#39;,
-       &#39;AJ194_7&#39;, &#39;AJ200_9&#39;, &#39;AL91_1&#39;, &#39;AH53&#39;, &#39;AI37&#39;],
-      dtype=&#39;object&#39;, length=320)
+       &#39;AE5&#39;, &#39;AH132&#39;, &#39;VOTE_ENG1&#39;, &#39;AJ175_P1&#39;, &#39;AK7_P1V2&#39;, &#39;AH129&#39;, &#39;AC146&#39;,
+       &#39;AC161&#39;, &#39;AG44&#39;, &#39;AM45&#39;],
+      dtype=&#39;object&#39;, length=108)
 </pre>
 </div>
 </div>
@@ -15053,15 +15096,15 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[[2340   45]
- [ 238   44]]
+<pre>[[2336   49]
+ [ 230   52]]
 =================================================
-Kappa Score: 0.19643102396458478
-Accuracy Score: 0.8938882639670042
-Precision: 0.4943820224719101
-Recall: 0.15602836879432624
-F1 Score: 0.23719676549865232
-AUC Score: 0.861150512214342
+Kappa Score: 0.22851704048846178
+Accuracy Score: 0.8953880764904387
+Precision: 0.5148514851485149
+Recall: 0.18439716312056736
+F1 Score: 0.2715404699738903
+AUC Score: 0.8509344752219099
 =================================================
 </pre>
 </div>
@@ -15112,11 +15155,11 @@ AUC Score: 0.861150512214342
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>=================================================
-Average Accuracy Score: 0.8906935781712058
-Average Precision Score: 0.451473354231975
-Average Recall Score: 0.16856349757113115
-Average F1 Score: 0.8906935781712058
-Average AUC Score: 0.8469835791900963
+Average Accuracy Score: 0.8881201978331331
+Average Precision Score: 0.4222888777220371
+Average Recall Score: 0.15799213509137172
+Average F1 Score: 0.8881201978331331
+Average AUC Score: 0.8531877447476279
 =================================================
 </pre>
 </div>
